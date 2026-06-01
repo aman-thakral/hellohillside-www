@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#F7F5EE" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#2D2B25" media="(prefers-color-scheme: dark)" />
+  <link rel="icon" type="image/png" href="icon.png" />
+  <link rel="apple-touch-icon" href="icon.png" />
+  <title>Hillside — your household, in one place</title>
+  <meta name="description" content="Hillside keeps the household running — meals, shopping, kids, and the things that pile up — in one calm place." />
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:title" content="Hillside" />
+  <meta property="og:description" content="Your household, in one calm place — meals, shopping, and everything that piles up." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hellohillside.com/" />
+
+  <style>
+    /* Warm paper / clay-coral palette, mirrored from the app's theme engine.
+       Self-contained on purpose: this is a static marketing page with no
+       build step and no dependencies. Light + dark via prefers-color-scheme. */
+    :root {
+      --bg: #F7F5EE;        /* warm paper */
+      --fg: #1A1915;        /* ink */
+      --muted: #57544D;     /* warm gray */
+      --faint: #7C7870;
+      --card: #FFFFFD;
+      --border: #E4E0D6;
+      --accent: #C15F3C;    /* clay / coral */
+      --accent-hover: #A94E2E;
+      --ring: #C15F3C;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #2D2B25;
+        --fg: #EEECE5;
+        --muted: #B4B0A6;
+        --faint: #98948A;
+        --card: #3A3730;
+        --border: #4A453C;
+        --accent: #D4795A;
+        --accent-hover: #E0876B;
+        --ring: #D4795A;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.55;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wrap {
+      flex: 1;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 7vh 24px 48px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header.brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18vh;
+    }
+    .mark {
+      width: 30px; height: 30px;
+      border-radius: 8px;
+      background: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: none;
+    }
+    .mark svg { display: block; }
+    .wordmark {
+      font-size: 18px;
+      font-weight: 650;
+      letter-spacing: -0.01em;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 7vw, 3rem);
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+      font-weight: 680;
+      margin: 0 0 18px;
+    }
+    .lede {
+      font-size: clamp(1.05rem, 3.5vw, 1.2rem);
+      color: var(--muted);
+      margin: 0 0 36px;
+      max-width: 46ch;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 12px 22px;
+      border-radius: 10px;
+      width: fit-content;
+      transition: background 140ms ease;
+    }
+    .cta:hover { background: var(--accent-hover); }
+    .cta:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; }
+    .cta svg { transition: transform 140ms ease; }
+    .cta:hover svg { transform: translateX(2px); }
+
+    .features {
+      margin-top: 56px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      display: grid;
+      gap: 22px;
+    }
+    .feature h3 {
+      margin: 0 0 4px;
+      font-size: 15px;
+      font-weight: 640;
+    }
+    .feature p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14.5px;
+    }
+
+    footer {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 28px 24px 40px;
+      color: var(--faint);
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    footer a { color: var(--faint); text-decoration: none; }
+    footer a:hover { color: var(--fg); }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="brand">
+      <span class="mark" aria-hidden="true">
+        <!-- simple hill glyph -->
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M2 19L9 9l4 5 3-4 6 9z" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="wordmark">Hillside</span>
+    </header>
+
+    <h1>Your household, in one calm place.</h1>
+    <p class="lede">
+      Meals, shopping, the kids, and the hundred small things that pile up —
+      Hillside keeps them together so the week runs itself.
+    </p>
+
+    <a class="cta" href="https://app.hellohillside.com/login">
+      Log in
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 12h14M13 6l6 6-6 6"/>
+      </svg>
+    </a>
+
+    <section class="features">
+      <div class="feature">
+        <h3>Capture on the go</h3>
+        <p>Paste in whatever piles up — a <strong>receipt</strong>, an
+        <strong>event</strong>, a few stray to-dos — and it sorts itself into
+        the right place: items onto the list, events onto the calendar.</p>
+      </div>
+      <div class="feature">
+        <h3>Meals &amp; recipes</h3>
+        <p>A steady weekday rotation and a recipe box the whole house can pull from.</p>
+      </div>
+      <div class="feature">
+        <h3>Shopping that stays current</h3>
+        <p>What to buy up front; what's already in the kitchen kept quietly in sync.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© Hillside</span>
+    <a href="https://app.hellohillside.com/login">Log in →</a>
+  </footer>
+</body>
+</html>
