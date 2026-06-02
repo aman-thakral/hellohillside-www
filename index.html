@@ -69,12 +69,22 @@
       flex-direction: column;
     }
 
-    header.brand {
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: clamp(28px, 7vh, 80px);
+    }
+    .brand {
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: clamp(32px, 8vh, 96px);
     }
+    /* compact header login — sized to match the 30px logo mark.
+       (.cta.cta-sm so it beats .cta regardless of source order) */
+    .cta.cta-sm { padding: 6px 13px; font-size: 13px; gap: 6px; }
+    .cta.cta-sm svg { width: 13px; height: 13px; }
     .mark {
       width: 30px; height: 30px;
       border-radius: 8px;
@@ -131,15 +141,33 @@
       flex-direction: column;
       align-items: center;
     }
-    .hero video {
+    /* iPhone-style device frame: dark titanium bezel, rounded screen. */
+    .hero .device {
+      position: relative;
       width: 100%;
-      max-width: 232px;
-      height: auto;
+      max-width: 250px;
+      padding: 9px;
+      background: linear-gradient(150deg, #34343a, #161618);
+      border-radius: 46px;
+      box-shadow: 0 20px 46px rgba(0, 0, 0, 0.26),
+                  inset 0 0 0 1.5px rgba(255, 255, 255, 0.06);
+    }
+    /* side buttons */
+    .hero .device::before {
+      content: ""; position: absolute; right: -2px; top: 30%;
+      width: 3px; height: 58px; border-radius: 2px; background: #0d0d0f;
+    }
+    .hero .device::after {
+      content: ""; position: absolute; left: -2px; top: 26%;
+      width: 3px; height: 30px; border-radius: 2px; background: #0d0d0f;
+      box-shadow: 0 42px 0 #0d0d0f;
+    }
+    .hero .device video {
       display: block;
-      border-radius: 28px;
-      border: 1px solid var(--border);
-      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.16);
-      background: var(--card);
+      width: 100%;
+      height: auto;
+      border-radius: 38px;
+      background: #000;
     }
     .hero figcaption {
       margin-top: 14px;
@@ -148,6 +176,23 @@
       color: var(--muted);
       text-align: center;
       max-width: 34ch;
+    }
+    .hero-copy { min-width: 0; }
+
+    /* The hero spans the full width; the reading sections stay calm + centered. */
+    .features, .shots, .faq { width: 100%; max-width: 600px; align-self: center; }
+
+    /* Desktop: text + phone side by side. */
+    @media (min-width: 680px) {
+      .hero-section {
+        display: grid;
+        grid-template-columns: 1fr minmax(176px, 200px);
+        gap: 32px;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+      .hero { margin: 0; }
+      .hero figcaption { text-align: left; max-width: 26ch; }
     }
 
     .features {
@@ -264,36 +309,42 @@
 </head>
 <body>
   <main class="wrap">
-    <header class="brand">
-      <span class="mark" aria-hidden="true">
-        <!-- simple hill glyph -->
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-          <path d="M2 19L9 9l4 5 3-4 6 9z" fill="#fff"/>
+    <header class="topbar">
+      <div class="brand">
+        <span class="mark" aria-hidden="true">
+          <!-- simple hill glyph -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M2 19L9 9l4 5 3-4 6 9z" fill="#fff"/>
+          </svg>
+        </span>
+        <span class="wordmark">Hillside</span>
+      </div>
+      <a class="cta cta-sm" href="https://app.hellohillside.com/login">
+        Log in
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M13 6l6 6-6 6"/>
         </svg>
-      </span>
-      <span class="wordmark">Hillside</span>
+      </a>
     </header>
 
-    <h1>Your household, in one calm place.</h1>
-    <p class="lede">
-      Type it or say it — <em>“out of milk,” “taco night Thursday,”
-      “order more dog food in a month”</em> — and Hillside files each one where
-      it belongs. Meals, shopping, and the small things that pile up, off your mind.
-    </p>
-
-    <a class="cta" href="https://app.hellohillside.com/login">
-      Log in
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M5 12h14M13 6l6 6-6 6"/>
-      </svg>
-    </a>
-
-    <figure class="hero">
-      <video src="screens/capture-hero.mp4" poster="screens/capture-hero-poster.png"
-             width="480" height="1042" autoplay muted loop playsinline preload="metadata"
-             aria-label="Dictating a brain-dump into Hillside on a phone — “out of milk and paprika, dentist appointment Tuesday at 3, call the plumber Friday” — and watching it sort into groceries and calendar events."></video>
-      <figcaption>One spoken brain-dump → groceries on the list, the appointment on your calendar.</figcaption>
-    </figure>
+    <section class="hero-section">
+      <div class="hero-copy">
+        <h1>Your household, in one calm place.</h1>
+        <p class="lede">
+          Type it or say it — <em>“out of milk,” “taco night Thursday,”
+          “order more dog food in a month”</em> — and Hillside files each one where
+          it belongs. Meals, shopping, and the small things that pile up, off your mind.
+        </p>
+      </div>
+      <figure class="hero">
+        <div class="device">
+          <video src="screens/capture-hero.mp4" poster="screens/capture-hero-poster.png"
+                 width="480" height="1042" autoplay muted loop playsinline preload="metadata"
+                 aria-label="Dictating a brain-dump into Hillside on a phone — “out of milk and paprika, dentist appointment Tuesday at 3, call the plumber Friday” — and watching it sort into groceries and calendar events."></video>
+        </div>
+        <figcaption>One spoken brain-dump → groceries on the list, the appointment on your calendar.</figcaption>
+      </figure>
+    </section>
 
     <section class="features">
       <div class="feature">
