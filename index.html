@@ -124,6 +124,32 @@
     .cta svg { transition: transform 140ms ease; }
     .cta:hover svg { transform: translateX(2px); }
 
+    /* Hero clip — a real phone capture, framed like a device. */
+    .hero {
+      margin: 36px 0 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .hero video {
+      width: 100%;
+      max-width: 232px;
+      height: auto;
+      display: block;
+      border-radius: 28px;
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.16);
+      background: var(--card);
+    }
+    .hero figcaption {
+      margin-top: 14px;
+      font-size: 13px;
+      line-height: 1.45;
+      color: var(--muted);
+      text-align: center;
+      max-width: 34ch;
+    }
+
     .features {
       margin-top: 56px;
       padding-top: 32px;
@@ -154,14 +180,16 @@
       font-weight: 640;
     }
     .shot-row {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 26px 16px;
+      max-width: 384px;
+      margin: 0 auto;
     }
-    .shot { margin: 0; width: 168px; }
-    .shot img {
+    .shot { margin: 0; display: flex; flex-direction: column; align-items: center; }
+    .shot img, .shot video {
       width: 100%;
+      max-width: 176px;
       height: auto;
       display: block;
       border-radius: 16px;
@@ -260,6 +288,13 @@
       </svg>
     </a>
 
+    <figure class="hero">
+      <video src="screens/capture-hero.mp4" poster="screens/capture-hero-poster.png"
+             width="480" height="1042" autoplay muted loop playsinline preload="metadata"
+             aria-label="Dictating a brain-dump into Hillside on a phone — “out of milk and paprika, dentist appointment Tuesday at 3, call the plumber Friday” — and watching it sort into groceries and calendar events."></video>
+      <figcaption>One spoken brain-dump → groceries on the list, the appointment on your calendar.</figcaption>
+    </figure>
+
     <section class="features">
       <div class="feature">
         <h3>Say it once, it's done</h3>
@@ -298,8 +333,13 @@
       <div class="shot-row">
         <figure class="shot">
           <img src="screens/capture.png" width="390" height="844" loading="lazy"
-               alt="Hillside activity feed: spoken lines like “out of paper towels” turned into groceries, to-dos and reminders." />
-          <figcaption>Say it once — it lands where it belongs.</figcaption>
+               alt="Hillside activity feed: each captured line turned into a grocery, a calendar event or a to-do." />
+          <figcaption>Everything you said, sorted into a tidy feed.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="screens/capture-detail.png" width="390" height="844" loading="lazy"
+               alt="A capture's detail view: what each line became, with Add-to-Calendar links and one-tap reclassify." />
+          <figcaption>Tap any capture to see what it did — fix it if it's wrong.</figcaption>
         </figure>
         <figure class="shot">
           <img src="screens/shopping.png" width="390" height="844" loading="lazy"
@@ -329,14 +369,20 @@
       </details>
       <details>
         <summary>How do I use it with Claude?</summary>
-        <p>Add Hillside as a connector in the Claude app, then ask in plain
-        language — “what's on the list?”, “we're out of butter.” Claude reads and
-        updates your kitchen for you, by voice or text.</p>
+        <p>In Hillside, open your <b>household settings</b> and tap
+        <b>Generate token</b> under “Claude connector” — it produces a connector
+        URL. In the Claude app, go to <b>Customize → Connectors → Add custom
+        connector</b>, paste that URL, and save. Now just ask —
+        <em>“what's on the shopping list?”, “we're out of butter.”</em> Claude
+        reads and updates your real kitchen, by voice or text.</p>
       </details>
       <details>
-        <summary>How do I use it on my phone?</summary>
-        <p>It's a web app — open app.hellohillside.com in your phone browser and
-        add it to your home screen for a full-screen, app-like shell.</p>
+        <summary>How do I get it as an app on my iPhone?</summary>
+        <p>Hillside is a web app, but it installs like a native one. In Safari,
+        open app.hellohillside.com, tap the <b>Share</b> button, then
+        <b>Add to Home Screen</b>. You'll get a Hillside icon that opens
+        full-screen — no browser bars, with pull-to-refresh. (On Android, use
+        <b>Add to Home screen</b> from Chrome's ⋮ menu.)</p>
       </details>
       <details>
         <summary>Does my whole household share it?</summary>
