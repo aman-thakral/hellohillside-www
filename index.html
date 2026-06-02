@@ -62,7 +62,7 @@
     .wrap {
       flex: 1;
       width: 100%;
-      max-width: 600px;
+      max-width: 860px;
       margin: 0 auto;
       padding: 5vh 24px 48px;
       display: flex;
@@ -81,7 +81,10 @@
       align-items: center;
       gap: 10px;
     }
-    .cta-sm { padding: 9px 15px; font-size: 14px; }
+    /* compact header login — sized to match the 30px logo mark.
+       (.cta.cta-sm so it beats .cta regardless of source order) */
+    .cta.cta-sm { padding: 6px 13px; font-size: 13px; gap: 6px; }
+    .cta.cta-sm svg { width: 13px; height: 13px; }
     .mark {
       width: 30px; height: 30px;
       border-radius: 8px;
@@ -173,6 +176,23 @@
       color: var(--muted);
       text-align: center;
       max-width: 34ch;
+    }
+    .hero-copy { min-width: 0; }
+
+    /* The hero spans the full width; the reading sections stay calm + centered. */
+    .features, .shots, .faq { width: 100%; max-width: 600px; align-self: center; }
+
+    /* Desktop: text + phone side by side. */
+    @media (min-width: 760px) {
+      .hero-section {
+        display: grid;
+        grid-template-columns: 1fr minmax(220px, 264px);
+        gap: 52px;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+      .hero { margin: 0; }
+      .hero figcaption { text-align: left; max-width: 30ch; }
     }
 
     .features {
@@ -307,21 +327,24 @@
       </a>
     </header>
 
-    <h1>Your household, in one calm place.</h1>
-    <p class="lede">
-      Type it or say it — <em>“out of milk,” “taco night Thursday,”
-      “order more dog food in a month”</em> — and Hillside files each one where
-      it belongs. Meals, shopping, and the small things that pile up, off your mind.
-    </p>
-
-    <figure class="hero">
-      <div class="device">
-        <video src="screens/capture-hero.mp4" poster="screens/capture-hero-poster.png"
-               width="480" height="1042" autoplay muted loop playsinline preload="metadata"
-               aria-label="Dictating a brain-dump into Hillside on a phone — “out of milk and paprika, dentist appointment Tuesday at 3, call the plumber Friday” — and watching it sort into groceries and calendar events."></video>
+    <section class="hero-section">
+      <div class="hero-copy">
+        <h1>Your household, in one calm place.</h1>
+        <p class="lede">
+          Type it or say it — <em>“out of milk,” “taco night Thursday,”
+          “order more dog food in a month”</em> — and Hillside files each one where
+          it belongs. Meals, shopping, and the small things that pile up, off your mind.
+        </p>
       </div>
-      <figcaption>One spoken brain-dump → groceries on the list, the appointment on your calendar.</figcaption>
-    </figure>
+      <figure class="hero">
+        <div class="device">
+          <video src="screens/capture-hero.mp4" poster="screens/capture-hero-poster.png"
+                 width="480" height="1042" autoplay muted loop playsinline preload="metadata"
+                 aria-label="Dictating a brain-dump into Hillside on a phone — “out of milk and paprika, dentist appointment Tuesday at 3, call the plumber Friday” — and watching it sort into groceries and calendar events."></video>
+        </div>
+        <figcaption>One spoken brain-dump → groceries on the list, the appointment on your calendar.</figcaption>
+      </figure>
+    </section>
 
     <section class="features">
       <div class="feature">
