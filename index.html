@@ -161,7 +161,7 @@
       margin: 0 auto;
     }
     .shot { margin: 0; display: flex; flex-direction: column; align-items: center; }
-    .shot img {
+    .shot img, .shot video {
       width: 100%;
       max-width: 176px;
       height: auto;
@@ -299,9 +299,10 @@
       <h2>A peek inside</h2>
       <div class="shot-row">
         <figure class="shot">
-          <img src="screens/capturebar.png" width="390" height="844" loading="lazy"
-               alt="Hillside capture bar with a brain-dump typed in: “out of milk and paprika, taco night thursday, book the dentist for the kids.”" />
-          <figcaption>Type it or say it — one brain-dump.</figcaption>
+          <video src="screens/capture-demo.mp4" poster="screens/capturebar.png"
+                 width="430" height="932" autoplay muted loop playsinline preload="metadata"
+                 aria-label="A brain-dump captured in one shot: groceries land on the list, an appointment becomes a calendar event, the rest is saved."></video>
+          <figcaption>Type it or say it — and watch it land.</figcaption>
         </figure>
         <figure class="shot">
           <img src="screens/capture.png" width="390" height="844" loading="lazy"
