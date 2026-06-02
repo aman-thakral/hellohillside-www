@@ -154,14 +154,16 @@
       font-weight: 640;
     }
     .shot-row {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 26px 16px;
+      max-width: 384px;
+      margin: 0 auto;
     }
-    .shot { margin: 0; width: 168px; }
+    .shot { margin: 0; display: flex; flex-direction: column; align-items: center; }
     .shot img {
       width: 100%;
+      max-width: 176px;
       height: auto;
       display: block;
       border-radius: 16px;
@@ -297,9 +299,14 @@
       <h2>A peek inside</h2>
       <div class="shot-row">
         <figure class="shot">
+          <img src="screens/capturebar.png" width="390" height="844" loading="lazy"
+               alt="Hillside capture bar with a brain-dump typed in: “out of milk and paprika, taco night thursday, book the dentist for the kids.”" />
+          <figcaption>Type it or say it — one brain-dump.</figcaption>
+        </figure>
+        <figure class="shot">
           <img src="screens/capture.png" width="390" height="844" loading="lazy"
-               alt="Hillside activity feed: spoken lines like “out of paper towels” turned into groceries, to-dos and reminders." />
-          <figcaption>Say it once — it lands where it belongs.</figcaption>
+               alt="Hillside activity feed: each captured line turned into a grocery, a to-do or a reminder." />
+          <figcaption>…and each line lands where it belongs.</figcaption>
         </figure>
         <figure class="shot">
           <img src="screens/shopping.png" width="390" height="844" loading="lazy"
