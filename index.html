@@ -131,15 +131,33 @@
       flex-direction: column;
       align-items: center;
     }
-    .hero video {
+    /* iPhone-style device frame: dark titanium bezel, rounded screen. */
+    .hero .device {
+      position: relative;
       width: 100%;
-      max-width: 232px;
-      height: auto;
+      max-width: 250px;
+      padding: 9px;
+      background: linear-gradient(150deg, #34343a, #161618);
+      border-radius: 46px;
+      box-shadow: 0 20px 46px rgba(0, 0, 0, 0.26),
+                  inset 0 0 0 1.5px rgba(255, 255, 255, 0.06);
+    }
+    /* side buttons */
+    .hero .device::before {
+      content: ""; position: absolute; right: -2px; top: 30%;
+      width: 3px; height: 58px; border-radius: 2px; background: #0d0d0f;
+    }
+    .hero .device::after {
+      content: ""; position: absolute; left: -2px; top: 26%;
+      width: 3px; height: 30px; border-radius: 2px; background: #0d0d0f;
+      box-shadow: 0 42px 0 #0d0d0f;
+    }
+    .hero .device video {
       display: block;
-      border-radius: 28px;
-      border: 1px solid var(--border);
-      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.16);
-      background: var(--card);
+      width: 100%;
+      height: auto;
+      border-radius: 38px;
+      background: #000;
     }
     .hero figcaption {
       margin-top: 14px;
@@ -289,9 +307,11 @@
     </a>
 
     <figure class="hero">
-      <video src="screens/capture-hero.mp4" poster="screens/capture-hero-poster.png"
-             width="480" height="1042" autoplay muted loop playsinline preload="metadata"
-             aria-label="Dictating a brain-dump into Hillside on a phone — “out of milk and paprika, dentist appointment Tuesday at 3, call the plumber Friday” — and watching it sort into groceries and calendar events."></video>
+      <div class="device">
+        <video src="screens/capture-hero.mp4" poster="screens/capture-hero-poster.png"
+               width="480" height="1042" autoplay muted loop playsinline preload="metadata"
+               aria-label="Dictating a brain-dump into Hillside on a phone — “out of milk and paprika, dentist appointment Tuesday at 3, call the plumber Friday” — and watching it sort into groceries and calendar events."></video>
+      </div>
       <figcaption>One spoken brain-dump → groceries on the list, the appointment on your calendar.</figcaption>
     </figure>
 
