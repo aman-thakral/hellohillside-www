@@ -124,6 +124,32 @@
     .cta svg { transition: transform 140ms ease; }
     .cta:hover svg { transform: translateX(2px); }
 
+    /* Hero clip — a real phone capture, framed like a device. */
+    .hero {
+      margin: 36px 0 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .hero video {
+      width: 100%;
+      max-width: 232px;
+      height: auto;
+      display: block;
+      border-radius: 28px;
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.16);
+      background: var(--card);
+    }
+    .hero figcaption {
+      margin-top: 14px;
+      font-size: 13px;
+      line-height: 1.45;
+      color: var(--muted);
+      text-align: center;
+      max-width: 34ch;
+    }
+
     .features {
       margin-top: 56px;
       padding-top: 32px;
@@ -262,6 +288,13 @@
       </svg>
     </a>
 
+    <figure class="hero">
+      <video src="screens/capture-hero.mp4" poster="screens/capture-hero-poster.png"
+             width="480" height="1042" autoplay muted loop playsinline preload="metadata"
+             aria-label="Dictating a brain-dump into Hillside on a phone — “out of milk and paprika, dentist appointment Tuesday at 3, call the plumber Friday” — and watching it sort into groceries and calendar events."></video>
+      <figcaption>One spoken brain-dump → groceries on the list, the appointment on your calendar.</figcaption>
+    </figure>
+
     <section class="features">
       <div class="feature">
         <h3>Say it once, it's done</h3>
@@ -299,15 +332,14 @@
       <h2>A peek inside</h2>
       <div class="shot-row">
         <figure class="shot">
-          <video src="screens/capture-demo.mp4" poster="screens/capturebar.png"
-                 width="430" height="932" autoplay muted loop playsinline preload="metadata"
-                 aria-label="A brain-dump captured in one shot: groceries land on the list, an appointment becomes a calendar event, the rest is saved."></video>
-          <figcaption>Type it or say it — and watch it land.</figcaption>
+          <img src="screens/capture.png" width="390" height="844" loading="lazy"
+               alt="Hillside activity feed: each captured line turned into a grocery, a calendar event or a to-do." />
+          <figcaption>Everything you said, sorted into a tidy feed.</figcaption>
         </figure>
         <figure class="shot">
-          <img src="screens/capture.png" width="390" height="844" loading="lazy"
-               alt="Hillside activity feed: each captured line turned into a grocery, a to-do or a reminder." />
-          <figcaption>…and each line lands where it belongs.</figcaption>
+          <img src="screens/capture-detail.png" width="390" height="844" loading="lazy"
+               alt="A capture's detail view: what each line became, with Add-to-Calendar links and one-tap reclassify." />
+          <figcaption>Tap any capture to see what it did — fix it if it's wrong.</figcaption>
         </figure>
         <figure class="shot">
           <img src="screens/shopping.png" width="390" height="844" loading="lazy"
