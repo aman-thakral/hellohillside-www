@@ -9,11 +9,11 @@
   <link rel="icon" type="image/png" href="/icon.png" />
   <link rel="apple-touch-icon" href="/icon.png" />
   <title>Hillside — your household, in one place</title>
-  <meta name="description" content="Hillside keeps the household running — meals, shopping, kids, and the things that pile up — in one calm place." />
+  <meta name="description" content="Say it once and it's done. Hillside files groceries, meals, reminders, and the small things that pile up into one calm place — type it or say it." />
 
   <!-- Open Graph / social preview -->
-  <meta property="og:title" content="Hillside" />
-  <meta property="og:description" content="Your household, in one calm place — meals, shopping, and everything that piles up." />
+  <meta property="og:title" content="Hillside — your household, in one calm place" />
+  <meta property="og:description" content="Type it or say it, and Hillside files each thing where it belongs — groceries, meals, reminders, and everything that piles up." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://hellohillside.com/" />
 
@@ -142,6 +142,82 @@
       font-size: 14.5px;
     }
 
+    /* Screenshot gallery — real surfaces, mobile shots in light theme. */
+    .shots {
+      margin-top: 56px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+    .shots h2 {
+      margin: 0 0 20px;
+      font-size: 15px;
+      font-weight: 640;
+    }
+    .shot-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .shot { margin: 0; width: 168px; }
+    .shot img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      background: var(--card);
+    }
+    .shot figcaption {
+      margin-top: 10px;
+      font-size: 12.5px;
+      line-height: 1.4;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* FAQ — native <details> accordion, no JS. */
+    .faq {
+      margin-top: 56px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+    .faq h2 {
+      margin: 0 0 8px;
+      font-size: 15px;
+      font-weight: 640;
+    }
+    .faq details {
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
+    }
+    .faq summary {
+      cursor: pointer;
+      font-size: 14.5px;
+      font-weight: 560;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after {
+      content: "+";
+      color: var(--faint);
+      font-size: 18px;
+      line-height: 1;
+      flex: none;
+    }
+    .faq details[open] summary::after { content: "\2013"; }
+    .faq details p {
+      margin: 10px 0 2px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
     footer {
       width: 100%;
       max-width: 600px;
@@ -172,8 +248,9 @@
 
     <h1>Your household, in one calm place.</h1>
     <p class="lede">
-      Meals, shopping, the kids, and the hundred small things that pile up —
-      Hillside keeps them together so the week runs itself.
+      Type it or say it — <em>“out of milk,” “taco night Thursday,”
+      “order more dog food in a month”</em> — and Hillside files each one where
+      it belongs. Meals, shopping, and the small things that pile up, off your mind.
     </p>
 
     <a class="cta" href="https://app.hellohillside.com/login">
@@ -185,19 +262,87 @@
 
     <section class="features">
       <div class="feature">
-        <h3>Capture on the go</h3>
-        <p>Paste in whatever piles up — a <strong>receipt</strong>, an
-        <strong>event</strong>, a few stray to-dos — and it sorts itself into
-        the right place: items onto the list, events onto the calendar.</p>
-      </div>
-      <div class="feature">
-        <h3>Meals &amp; recipes</h3>
-        <p>A steady weekday rotation and a recipe box the whole house can pull from.</p>
+        <h3>Say it once, it's done</h3>
+        <p>Type a line or dictate a brain-dump — even paste a whole receipt — and
+        Hillside reads it, sorts out what's a grocery, a to-do, a recipe or a
+        reminder, and files each where it goes. One step, no forms.</p>
       </div>
       <div class="feature">
         <h3>Shopping that stays current</h3>
-        <p>What to buy up front; what's already in the kitchen kept quietly in sync.</p>
+        <p>What to buy stays up front; what's already in the kitchen sits quietly
+        behind it. Mark something bought and it drops off the list on its own —
+        with a nudge before the half-jar of yogurt turns.</p>
       </div>
+      <div class="feature">
+        <h3>Meals &amp; recipes</h3>
+        <p>A steady weekday rotation and a shared recipe box the whole house can
+        pull from — cook times, ingredients, and the dishes you've liked, all in
+        one place.</p>
+      </div>
+      <div class="feature">
+        <h3>Catches what you'd forget</h3>
+        <p>“Sharpened the knives.” “Changed the furnace filter.” Hillside turns the
+        throwaway line into a calendar reminder months down the road, and keeps
+        the notes you'd otherwise lose.</p>
+      </div>
+      <div class="feature">
+        <h3>Works with Claude</h3>
+        <p>Connect Hillside to Claude and just ask — <em>“what's on the shopping
+        list?”, “we're out of butter,” “what did I buy last week?”</em> It reads
+        and updates your real kitchen, by voice or text.</p>
+      </div>
+    </section>
+
+    <section class="shots">
+      <h2>A peek inside</h2>
+      <div class="shot-row">
+        <figure class="shot">
+          <img src="screens/capture.png" width="390" height="844" loading="lazy"
+               alt="Hillside activity feed: spoken lines like “out of paper towels” turned into groceries, to-dos and reminders." />
+          <figcaption>Say it once — it lands where it belongs.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="screens/shopping.png" width="390" height="844" loading="lazy"
+               alt="Hillside shopping list with an expiring-soon section and in-stock / out status chips." />
+          <figcaption>What to buy, and what's about to turn.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="screens/recipes.png" width="390" height="844" loading="lazy"
+               alt="Hillside recipe box with cuisine, cook times and ingredient counts." />
+          <figcaption>A recipe box the whole house shares.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="faq">
+      <h2>How do I…?</h2>
+      <details>
+        <summary>How do I get in?</summary>
+        <p>Hillside is invite-only for now. Ask whoever invited you for a signup
+        code, then create your household at app.hellohillside.com.</p>
+      </details>
+      <details>
+        <summary>How do I add things?</summary>
+        <p>Type or dictate a line into the capture bar — “out of milk,” “taco
+        night Thursday” — and Hillside files each one where it belongs. Back from
+        the store? Paste the receipt and the whole shop is logged at once.</p>
+      </details>
+      <details>
+        <summary>How do I use it with Claude?</summary>
+        <p>Add Hillside as a connector in the Claude app, then ask in plain
+        language — “what's on the list?”, “we're out of butter.” Claude reads and
+        updates your kitchen for you, by voice or text.</p>
+      </details>
+      <details>
+        <summary>How do I use it on my phone?</summary>
+        <p>It's a web app — open app.hellohillside.com in your phone browser and
+        add it to your home screen for a full-screen, app-like shell.</p>
+      </details>
+      <details>
+        <summary>Does my whole household share it?</summary>
+        <p>Yes. Everyone in your household sees the same shopping list, recipes,
+        and capture history, on every device.</p>
+      </details>
     </section>
   </main>
 
