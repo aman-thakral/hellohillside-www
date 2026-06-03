@@ -238,6 +238,8 @@
       margin: 0 auto;
     }
     .shot { margin: 0; display: flex; flex-direction: column; align-items: center; }
+    /* odd number of tiles → center the lone last one across both columns */
+    .shot:last-child:nth-child(odd) { grid-column: 1 / -1; justify-self: center; }
     .shot img, .shot video {
       width: 100%;
       max-width: 176px;
@@ -396,7 +398,12 @@
         <figure class="shot">
           <img src="screens/activity.png" width="390" height="844" loading="lazy"
                alt="Activity feed: each logged line turned into a grocery, a calendar event, a to-do or a note." />
-          <figcaption>Every line, sorted — re-route any miss in a tap.</figcaption>
+          <figcaption>Everything you said, sorted into a feed.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="screens/detail.png" width="390" height="844" loading="lazy"
+               alt="A logged note opened up: what each line became, with an Add-to-Calendar link and one-tap re-routing." />
+          <figcaption>Open any one — see where each line went, fix it in a tap.</figcaption>
         </figure>
         <figure class="shot">
           <img src="screens/notes-todos.png" width="390" height="844" loading="lazy"
