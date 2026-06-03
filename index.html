@@ -9,309 +9,15 @@
   <link rel="icon" type="image/png" href="/icon.png" />
   <link rel="apple-touch-icon" href="/icon.png" />
   <title>Hillside — your household, in one place</title>
-  <meta name="description" content="Say it once and it's done. Hillside files groceries, meals, reminders, and the small things that pile up into one calm place — type it or say it." />
+  <meta name="description" content="Say it once and it's done. Hillside files groceries, to-dos, reminders, and the small things that pile up into one shared place — type it or say it." />
 
   <!-- Open Graph / social preview -->
   <meta property="og:title" content="Hillside — your household, in one calm place" />
-  <meta property="og:description" content="Type it or say it, and Hillside files each thing where it belongs — groceries, meals, reminders, and everything that piles up." />
+  <meta property="og:description" content="Type it or say it, and Hillside files each thing where it belongs — groceries, to-dos, reminders, and everything that piles up." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://hellohillside.com/" />
 
-  <style>
-    /* Warm paper / clay-coral palette, mirrored from the app's theme engine.
-       Self-contained on purpose: this is a static marketing page with no
-       build step and no dependencies. Light + dark via prefers-color-scheme. */
-    :root {
-      --bg: #F7F5EE;        /* warm paper */
-      --fg: #1A1915;        /* ink */
-      --muted: #57544D;     /* warm gray */
-      --faint: #7C7870;
-      --card: #FFFFFD;
-      --border: #E4E0D6;
-      --accent: #C15F3C;    /* clay / coral */
-      --accent-hover: #A94E2E;
-      --ring: #C15F3C;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #2D2B25;
-        --fg: #EEECE5;
-        --muted: #B4B0A6;
-        --faint: #98948A;
-        --card: #3A3730;
-        --border: #4A453C;
-        --accent: #D4795A;
-        --accent-hover: #E0876B;
-        --ring: #D4795A;
-      }
-    }
-
-    * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; }
-    body {
-      background: var(--bg);
-      color: var(--fg);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      line-height: 1.55;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .wrap {
-      flex: 1;
-      width: 100%;
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 5vh 24px 48px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: clamp(28px, 7vh, 80px);
-    }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    /* compact header login — sized to match the 30px logo mark.
-       (.cta.cta-sm so it beats .cta regardless of source order) */
-    .cta.cta-sm { padding: 6px 13px; font-size: 13px; gap: 6px; }
-    .cta.cta-sm svg { width: 13px; height: 13px; }
-    .mark {
-      width: 30px; height: 30px;
-      border-radius: 8px;
-      background: var(--accent);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex: none;
-    }
-    .mark svg { display: block; }
-    .wordmark {
-      font-size: 18px;
-      font-weight: 650;
-      letter-spacing: -0.01em;
-    }
-
-    h1 {
-      font-size: clamp(2rem, 7vw, 3rem);
-      line-height: 1.08;
-      letter-spacing: -0.025em;
-      font-weight: 680;
-      margin: 0 0 18px;
-    }
-    .lede {
-      font-size: clamp(1.05rem, 3.5vw, 1.2rem);
-      color: var(--muted);
-      margin: 0 0 36px;
-      max-width: 46ch;
-    }
-
-    .cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--accent);
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 15px;
-      padding: 12px 22px;
-      border-radius: 10px;
-      width: fit-content;
-      transition: background 140ms ease;
-    }
-    .cta:hover { background: var(--accent-hover); }
-    .cta:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; }
-    .cta svg { transition: transform 140ms ease; }
-    .cta:hover svg { transform: translateX(2px); }
-
-    /* Hero clip — a real phone capture, framed like a device. */
-    .hero {
-      margin: 36px 0 4px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    /* iPhone-style device frame: dark titanium bezel, rounded screen. */
-    .hero .device {
-      position: relative;
-      width: 100%;
-      max-width: 250px;
-      padding: 9px;
-      background: linear-gradient(150deg, #34343a, #161618);
-      border-radius: 46px;
-      box-shadow: 0 20px 46px rgba(0, 0, 0, 0.26),
-                  inset 0 0 0 1.5px rgba(255, 255, 255, 0.06);
-    }
-    /* side buttons */
-    .hero .device::before {
-      content: ""; position: absolute; right: -2px; top: 30%;
-      width: 3px; height: 58px; border-radius: 2px; background: #0d0d0f;
-    }
-    .hero .device::after {
-      content: ""; position: absolute; left: -2px; top: 26%;
-      width: 3px; height: 30px; border-radius: 2px; background: #0d0d0f;
-      box-shadow: 0 42px 0 #0d0d0f;
-    }
-    .hero .device video {
-      display: block;
-      width: 100%;
-      height: auto;
-      border-radius: 38px;
-      background: #000;
-    }
-    .hero figcaption {
-      margin-top: 14px;
-      font-size: 13px;
-      line-height: 1.45;
-      color: var(--muted);
-      text-align: center;
-      max-width: 34ch;
-    }
-    .hero-copy { min-width: 0; }
-
-    /* The hero spans the full width; the reading sections stay calm + centered. */
-    .features, .shots, .faq { width: 100%; max-width: 600px; align-self: center; }
-
-    /* Desktop: text + phone side by side. */
-    @media (min-width: 680px) {
-      .hero-section {
-        display: grid;
-        grid-template-columns: 1fr minmax(176px, 200px);
-        gap: 32px;
-        align-items: center;
-        margin-bottom: 8px;
-      }
-      .hero { margin: 0; }
-      .hero figcaption { text-align: left; max-width: 26ch; }
-    }
-
-    .features {
-      margin-top: 56px;
-      padding-top: 32px;
-      border-top: 1px solid var(--border);
-      display: grid;
-      gap: 22px;
-    }
-    .feature h3 {
-      margin: 0 0 4px;
-      font-size: 15px;
-      font-weight: 640;
-    }
-    .feature p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14.5px;
-    }
-    .features-lead {
-      margin: 0 0 6px;
-      font-size: 15px;
-      font-weight: 560;
-      color: var(--fg);
-    }
-
-    /* Screenshot gallery — real surfaces, mobile shots in light theme. */
-    .shots {
-      margin-top: 56px;
-      padding-top: 32px;
-      border-top: 1px solid var(--border);
-    }
-    .shots h2 {
-      margin: 0 0 20px;
-      font-size: 15px;
-      font-weight: 640;
-    }
-    .shot-row {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 26px 16px;
-      max-width: 384px;
-      margin: 0 auto;
-    }
-    .shot { margin: 0; display: flex; flex-direction: column; align-items: center; }
-    .shot img, .shot video {
-      width: 100%;
-      max-width: 176px;
-      height: auto;
-      display: block;
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-      background: var(--card);
-    }
-    .shot figcaption {
-      margin-top: 10px;
-      font-size: 12.5px;
-      line-height: 1.4;
-      color: var(--muted);
-      text-align: center;
-    }
-
-    /* FAQ — native <details> accordion, no JS. */
-    .faq {
-      margin-top: 56px;
-      padding-top: 32px;
-      border-top: 1px solid var(--border);
-    }
-    .faq h2 {
-      margin: 0 0 8px;
-      font-size: 15px;
-      font-weight: 640;
-    }
-    .faq details {
-      border-bottom: 1px solid var(--border);
-      padding: 14px 0;
-    }
-    .faq summary {
-      cursor: pointer;
-      font-size: 14.5px;
-      font-weight: 560;
-      list-style: none;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-    }
-    .faq summary::-webkit-details-marker { display: none; }
-    .faq summary::after {
-      content: "+";
-      color: var(--faint);
-      font-size: 18px;
-      line-height: 1;
-      flex: none;
-    }
-    .faq details[open] summary::after { content: "\2013"; }
-    .faq details p {
-      margin: 10px 0 2px;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.55;
-    }
-
-    footer {
-      width: 100%;
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 28px 24px 40px;
-      color: var(--faint);
-      font-size: 13px;
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    footer a { color: var(--faint); text-decoration: none; }
-    footer a:hover { color: var(--fg); }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <main class="wrap">
@@ -356,25 +62,19 @@
     <section class="features">
       <p class="features-lead">Right now it's scattered — texted to your partner, emailed to yourself, lost in a notes app, with no shared place it all lives. To-do apps and notes don't fix it: you still file each thing yourself, on your own phone. Hillside is the one shared place you just dump it all, and each line routes itself — for the whole house.</p>
       <div class="feature">
-        <h3>Capture — say it once</h3>
-        <p>Type or dictate a brain-dump — a grocery, a task, an appointment, a
-        note, even a pasted receipt — and Hillside reads it and files every line
-        where it belongs. Guessed wrong? One tap in the activity feed re-routes
-        it — so you never have to get the wording right. It even turns a throwaway
-        “changed the furnace filter” into a reminder months from now.</p>
+        <h3>One box for everything</h3>
+        <p>Type it, say it, or snap a photo — a grocery, a to-do, an appointment,
+        a note, a whole receipt — into the one Log, and Hillside sends each line
+        where it belongs. It'll even turn a throwaway “changed the furnace filter”
+        into a reminder months out. Guessed wrong? One tap in the activity feed
+        re-routes it — you never have to get the wording right.</p>
       </div>
       <div class="feature">
-        <h3>Plan — what's coming up</h3>
-        <p>Tasks and appointments in one agenda — each with an add-to-calendar
-        link — plus the weekly dinner rotation. And <em>Guides</em>: the
-        references the house keeps handy, from recipes to how-tos to anything
-        worth writing down.</p>
-      </div>
-      <div class="feature">
-        <h3>Track — what's in the house</h3>
-        <p>What to buy stays up front; what you already have sits quietly behind
-        it. Mark something bought and it drops off the list on its own — with a
-        nudge before the half-jar of yogurt turns.</p>
+        <h3>It lands where you'll find it</h3>
+        <p>Notes and to-dos collect in one searchable list — with due dates and an
+        add-to-calendar link for anything timed. The shopping list stays current:
+        what to buy up front, what's already in the kitchen behind it, and a nudge
+        before the half-jar of yogurt turns.</p>
       </div>
       <div class="feature">
         <h3>Shared with your household</h3>
@@ -395,73 +95,54 @@
       <h2>A peek inside</h2>
       <div class="shot-row">
         <figure class="shot">
-          <img src="screens/capture.png" width="390" height="844" loading="lazy"
-               alt="Hillside activity feed: each captured line turned into a grocery, a calendar event or a task." />
-          <figcaption>Everything you said, sorted into a tidy feed.</figcaption>
+          <img src="screens/log.png" width="390" height="844" loading="lazy"
+               alt="Hillside's Log: one box that takes a typed or spoken brain-dump, or a photo." />
+          <figcaption>One box — type it, say it, or snap a photo.</figcaption>
         </figure>
         <figure class="shot">
-          <img src="screens/capture-detail.png" width="390" height="844" loading="lazy"
-               alt="A capture's detail view: what each line became, with Add-to-Calendar links and one-tap reclassify." />
-          <figcaption>See what each line became — and re-route any miss in a tap.</figcaption>
+          <img src="screens/activity.png" width="390" height="844" loading="lazy"
+               alt="Activity feed: each logged line turned into a grocery, a calendar event, a to-do or a note." />
+          <figcaption>Everything you said, sorted into a feed.</figcaption>
         </figure>
         <figure class="shot">
-          <img src="screens/tasks.png" width="390" height="844" loading="lazy"
-               alt="Hillside Plan tasks: a shared agenda of to-dos with due dates." />
-          <figcaption>Tasks and due dates — the week's agenda.</figcaption>
+          <img src="screens/detail.png" width="390" height="844" loading="lazy"
+               alt="A logged note opened up: what each line became, with an Add-to-Calendar link and one-tap re-routing." />
+          <figcaption>Open any one — see where each line went, fix it in a tap.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="screens/notes-todos.png" width="390" height="844" loading="lazy"
+               alt="Notes &amp; To-dos: notes and dated tasks together in one searchable list." />
+          <figcaption>Notes and to-dos, in one place.</figcaption>
         </figure>
         <figure class="shot">
           <img src="screens/shopping.png" width="390" height="844" loading="lazy"
-               alt="Hillside shopping list with an expiring-soon section and in-stock / out status chips." />
+               alt="Shopping list with an expiring-soon section and in-stock / out status chips." />
           <figcaption>What to buy, and what's about to turn.</figcaption>
         </figure>
       </div>
     </section>
 
-    <section class="faq">
-      <h2>How do I…?</h2>
-      <details>
-        <summary>How do I get in?</summary>
-        <p>Hillside is invite-only for now. Ask whoever invited you for a signup
-        code, then create your household at app.hellohillside.com.</p>
-      </details>
-      <details>
-        <summary>How do I add things?</summary>
-        <p>Type or dictate a line into the capture bar — “out of milk,” “taco
-        night Thursday” — and Hillside files each one where it belongs. Back from
-        the store? Paste the receipt and the whole shop is logged at once.</p>
-      </details>
-      <details>
-        <summary>How do I use it with Claude?</summary>
-        <p>In Hillside, open your <b>household settings</b> and tap
-        <b>Generate token</b> under “Claude connector” — it produces a connector
-        URL. In the Claude app, go to <b>Customize → Connectors → Add custom
-        connector</b>, paste that URL, and save. Now just ask —
-        <em>“what's on the list?”, “we're out of butter.”</em> Claude
-        reads and updates your household for you, by voice or text.</p>
-      </details>
-      <details>
-        <summary>How do I get it as an app on my iPhone?</summary>
-        <p>Hillside is a web app, but it installs like a native one. In Safari,
-        open app.hellohillside.com, tap the <b>Share</b> button, then
-        <b>Add to Home Screen</b>. You'll get a Hillside icon that opens
-        full-screen — no browser bars, with pull-to-refresh. (On Android, use
-        <b>Add to Home screen</b> from Chrome's ⋮ menu.)</p>
-      </details>
-      <details>
-        <summary>What's a household — and how do I add my family?</summary>
-        <p>A household is the shared space everything lives in: the shopping
-        list, recipes, and capture history belong to it, not to one person — and
-        each member sees the same data on their own device. To add someone, open
-        <b>Settings → Members</b>, tap <b>Generate invite</b>, and send them the
-        link (good for 7 days); they join your household and set their own
-        password.</p>
-      </details>
-    </section>
+    <!-- FAQ content lives in faq.html; loaded in here so this file stays lean. -->
+    <section class="faq" id="faq" aria-label="Frequently asked questions"></section>
   </main>
 
   <footer>
     <span>© Hillside</span>
+    <a href="faq.html">FAQ</a>
     <a href="https://app.hellohillside.com/login">Log in →</a>
   </footer>
+
+  <!-- The FAQ lives on its own page (faq.html, also linkable from the app). We
+       pull just its .faq section in here so the questions stay single-source.
+       Native <details> needs no JS; this only injects markup. -->
+  <script>
+    fetch("faq.html")
+      .then(function (r) { return r.ok ? r.text() : Promise.reject(r.status); })
+      .then(function (html) {
+        var faq = new DOMParser().parseFromString(html, "text/html").querySelector(".faq");
+        if (faq) document.getElementById("faq").innerHTML = faq.innerHTML;
+      })
+      .catch(function () {});
+  </script>
 </body>
 </html>
