@@ -9,11 +9,11 @@
   <link rel="icon" type="image/png" href="/icon.png" />
   <link rel="apple-touch-icon" href="/icon.png" />
   <title>Hillside — your household, in one place</title>
-  <meta name="description" content="Say it once and it's done. Hillside files groceries, meals, reminders, and the small things that pile up into one calm place — type it or say it." />
+  <meta name="description" content="Say it once and it's done. Hillside files groceries, to-dos, reminders, and the small things that pile up into one shared place — type it or say it." />
 
   <!-- Open Graph / social preview -->
   <meta property="og:title" content="Hillside — your household, in one calm place" />
-  <meta property="og:description" content="Type it or say it, and Hillside files each thing where it belongs — groceries, meals, reminders, and everything that piles up." />
+  <meta property="og:description" content="Type it or say it, and Hillside files each thing where it belongs — groceries, to-dos, reminders, and everything that piles up." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://hellohillside.com/" />
 
@@ -411,52 +411,22 @@
       </div>
     </section>
 
-    <section class="faq">
-      <h2>How do I…?</h2>
-      <details>
-        <summary>How do I get in?</summary>
-        <p>Hillside is invite-only for now. Ask whoever invited you for a signup
-        code, then create your household at app.hellohillside.com.</p>
-      </details>
-      <details>
-        <summary>How do I add things?</summary>
-        <p>Type, say, or snap a photo into the <b>Log</b> on Home — “out of
-        milk,” “taco night Thursday” — and Hillside files each one where it
-        belongs. Back from the store? Drop in the receipt and the whole shop is
-        logged at once.</p>
-      </details>
-      <details>
-        <summary>How do I use it with Claude?</summary>
-        <p>In Hillside, open your <b>household settings</b> and tap
-        <b>Generate token</b> under “Claude connector” — it produces a connector
-        URL. In the Claude app, go to <b>Customize → Connectors → Add custom
-        connector</b>, paste that URL, and save. Now just ask —
-        <em>“what's on the list?”, “we're out of butter.”</em> Claude
-        reads and updates your household for you, by voice or text.</p>
-      </details>
-      <details>
-        <summary>How do I get it as an app on my iPhone?</summary>
-        <p>Hillside is a web app, but it installs like a native one. In Safari,
-        open app.hellohillside.com, tap the <b>Share</b> button, then
-        <b>Add to Home Screen</b>. You'll get a Hillside icon that opens
-        full-screen — no browser bars, with pull-to-refresh. (On Android, use
-        <b>Add to Home screen</b> from Chrome's ⋮ menu.)</p>
-      </details>
-      <details>
-        <summary>What's a household — and how do I add my family?</summary>
-        <p>A household is the shared space everything lives in: the shopping
-        list, your notes and to-dos, and the activity history belong to it, not
-        to one person — and each member sees the same data on their own device. To add someone, open
-        <b>Settings → Members</b>, tap <b>Generate invite</b>, and send them the
-        link (good for 7 days); they join your household and set their own
-        password.</p>
-      </details>
-    </section>
+    <!-- FAQ content lives in faq.html; loaded in here so this file stays lean. -->
+    <section class="faq" id="faq" aria-label="Frequently asked questions"></section>
   </main>
 
   <footer>
     <span>© Hillside</span>
     <a href="https://app.hellohillside.com/login">Log in →</a>
   </footer>
+
+  <!-- Pull the FAQ in from its own file (faq.html). Native <details> needs no JS;
+       this just injects the markup so the questions live in one editable place. -->
+  <script>
+    fetch("faq.html")
+      .then(function (r) { return r.ok ? r.text() : Promise.reject(r.status); })
+      .then(function (html) { document.getElementById("faq").innerHTML = html; })
+      .catch(function () {});
+  </script>
 </body>
 </html>
