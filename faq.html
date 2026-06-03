@@ -1,43 +1,85 @@
-<!-- FAQ content for hellohillside.com.
-     This is a fragment, not a standalone page: index.html loads it into its
-     #faq section with a small fetch(), so it reuses the site's .faq styles.
-     Edit the questions here. -->
-<h2>How do I…?</h2>
-<details>
-  <summary>How do I get in?</summary>
-  <p>Hillside is invite-only for now. Ask whoever invited you for a signup
-  code, then create your household at app.hellohillside.com.</p>
-</details>
-<details>
-  <summary>How do I add things?</summary>
-  <p>Type, say, or snap a photo into the <b>Log</b> on Home — “out of
-  milk,” “taco night Thursday” — and Hillside files each one where it
-  belongs. Back from the store? Drop in the receipt and the whole shop is
-  logged at once.</p>
-</details>
-<details>
-  <summary>How do I use it with Claude?</summary>
-  <p>In Hillside, open your <b>household settings</b> and tap
-  <b>Generate token</b> under “Claude connector” — it produces a connector
-  URL. In the Claude app, go to <b>Customize → Connectors → Add custom
-  connector</b>, paste that URL, and save. Now just ask —
-  <em>“what's on the list?”, “we're out of butter.”</em> Claude
-  reads and updates your household for you, by voice or text.</p>
-</details>
-<details>
-  <summary>How do I get it as an app on my iPhone?</summary>
-  <p>Hillside is a web app, but it installs like a native one. In Safari,
-  open app.hellohillside.com, tap the <b>Share</b> button, then
-  <b>Add to Home Screen</b>. You'll get a Hillside icon that opens
-  full-screen — no browser bars, with pull-to-refresh. (On Android, use
-  <b>Add to Home screen</b> from Chrome's ⋮ menu.)</p>
-</details>
-<details>
-  <summary>What's a household — and how do I add my family?</summary>
-  <p>A household is the shared space everything lives in: the shopping
-  list, your notes and to-dos, and the activity history belong to it, not
-  to one person — and each member sees the same data on their own device. To add someone, open
-  <b>Settings → Members</b>, tap <b>Generate invite</b>, and send them the
-  link (good for 7 days); they join your household and set their own
-  password.</p>
-</details>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#F7F5EE" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#2D2B25" media="(prefers-color-scheme: dark)" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="/icon.png" />
+  <link rel="apple-touch-icon" href="/icon.png" />
+  <title>FAQ · Hillside</title>
+  <meta name="description" content="Hillside FAQ — getting in, adding things, using it with Claude, installing it on your phone, and sharing with your household." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Standalone FAQ page (linkable from inside the app). The landing page
+       pulls this page's .faq section in via fetch, so the questions below are
+       the single source — edit them here. -->
+  <main class="wrap">
+    <header class="topbar">
+      <a class="brand" href="/" style="text-decoration:none;color:inherit">
+        <span class="mark" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M2 19L9 9l4 5 3-4 6 9z" fill="#fff"/>
+          </svg>
+        </span>
+        <span class="wordmark">Hillside</span>
+      </a>
+      <a class="cta cta-sm" href="https://app.hellohillside.com/login">
+        Log in
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M13 6l6 6-6 6"/>
+        </svg>
+      </a>
+    </header>
+
+    <section class="faq" style="margin-top:8px;border-top:none;padding-top:0">
+      <h2>How do I…?</h2>
+      <details>
+        <summary>How do I get in?</summary>
+        <p>Hillside is invite-only for now. Ask whoever invited you for a signup
+        code, then create your household at app.hellohillside.com.</p>
+      </details>
+      <details>
+        <summary>How do I add things?</summary>
+        <p>Type, say, or snap a photo into the <b>Log</b> on Home — “out of
+        milk,” “taco night Thursday” — and Hillside files each one where it
+        belongs. Back from the store? Drop in the receipt and the whole shop is
+        logged at once.</p>
+      </details>
+      <details>
+        <summary>How do I use it with Claude?</summary>
+        <p>In Hillside, open your <b>household settings</b> and tap
+        <b>Generate token</b> under “Claude connector” — it produces a connector
+        URL. In the Claude app, go to <b>Customize → Connectors → Add custom
+        connector</b>, paste that URL, and save. Now just ask —
+        <em>“what's on the list?”, “we're out of butter.”</em> Claude
+        reads and updates your household for you, by voice or text.</p>
+      </details>
+      <details>
+        <summary>How do I get it as an app on my iPhone?</summary>
+        <p>Hillside is a web app, but it installs like a native one. In Safari,
+        open app.hellohillside.com, tap the <b>Share</b> button, then
+        <b>Add to Home Screen</b>. You'll get a Hillside icon that opens
+        full-screen — no browser bars, with pull-to-refresh. (On Android, use
+        <b>Add to Home screen</b> from Chrome's ⋮ menu.)</p>
+      </details>
+      <details>
+        <summary>What's a household — and how do I add my family?</summary>
+        <p>A household is the shared space everything lives in: the shopping
+        list, your notes and to-dos, and the activity history belong to it, not
+        to one person — and each member sees the same data on their own device. To add someone, open
+        <b>Settings → Members</b>, tap <b>Generate invite</b>, and send them the
+        link (good for 7 days); they join your household and set their own
+        password.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    <span>© Hillside</span>
+    <a href="/">← Home</a>
+  </footer>
+</body>
+</html>
