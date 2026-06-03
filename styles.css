@@ -142,7 +142,7 @@
       width: 3px; height: 30px; border-radius: 2px; background: #0d0d0f;
       box-shadow: 0 42px 0 #0d0d0f;
     }
-    .hero .device video {
+    .hero .device video, .hero .device img {
       display: block;
       width: 100%;
       height: auto;
