@@ -11,6 +11,19 @@
   <title>FAQ · Hillside</title>
   <meta name="description" content="Hillside FAQ — getting in, adding things, using it with Claude, installing it on your phone, and sharing with your household." />
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Opened inside the app (faq.html?embed): drop the marketing chrome —
+       the app already has its own header, and "Log in" doesn't apply. */
+    html.embed .topbar, html.embed footer { display: none; }
+    html.embed .wrap { padding-top: 20px; }
+  </style>
+  <script>
+    // Set before first paint so the header never flashes.
+    try {
+      if (new URLSearchParams(location.search).has("embed"))
+        document.documentElement.classList.add("embed");
+    } catch (e) {}
+  </script>
 </head>
 <body>
   <!-- Standalone FAQ page (linkable from inside the app). The landing page
