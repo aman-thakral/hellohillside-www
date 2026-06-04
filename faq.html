@@ -13,8 +13,11 @@
   <link rel="stylesheet" href="styles.css" />
   <style>
     /* Opened inside the app (faq.html?embed): drop the marketing chrome —
-       the app already has its own header, and "Log in" doesn't apply. */
-    html.embed .topbar, html.embed footer, html.embed .faq-intro { display: none; }
+       the app already has its own header, and "Log in" doesn't apply. The
+       intro stays (it answers "what is this?"), but its landing-page link is
+       dropped — no point sending an in-app user back to the marketing site. */
+    html.embed .topbar, html.embed footer { display: none; }
+    html.embed .faq-intro a { display: none; }
     html.embed .wrap { padding-top: 20px; }
   </style>
   <script>
