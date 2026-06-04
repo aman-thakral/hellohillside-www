@@ -285,6 +285,14 @@
       font-size: 14px;
       line-height: 1.55;
     }
+    .faq details ol {
+      margin: 8px 0 2px;
+      padding-left: 20px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    .faq details ol li { margin: 4px 0; }
 
     footer {
       width: 100%;
