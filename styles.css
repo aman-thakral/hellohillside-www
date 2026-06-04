@@ -1,7 +1,14 @@
 /* Warm paper / clay-coral palette, mirrored from the app's theme engine.
        Self-contained on purpose: this is a static marketing page with no
-       build step and no dependencies. Light + dark via prefers-color-scheme. */
+       build step and no dependencies.
+
+       The app is light-only, so this page is locked to light too: color-scheme
+       pins UA surfaces (scrollbars, form controls) to light, and we no longer
+       auto-switch on prefers-color-scheme. The dark palette is kept below for
+       reference / future opt-in (apply data-theme="dark" on <html>), but it
+       never activates from the system preference. */
     :root {
+      color-scheme: light;
       --bg: #F7F5EE;        /* warm paper */
       --fg: #1A1915;        /* ink */
       --muted: #57544D;     /* warm gray */
@@ -12,18 +19,18 @@
       --accent-hover: #A94E2E;
       --ring: #C15F3C;
     }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #2D2B25;
-        --fg: #EEECE5;
-        --muted: #B4B0A6;
-        --faint: #98948A;
-        --card: #3A3730;
-        --border: #4A453C;
-        --accent: #D4795A;
-        --accent-hover: #E0876B;
-        --ring: #D4795A;
-      }
+    /* Dark palette retained but no longer auto-applied — opt-in only. */
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #2D2B25;
+      --fg: #EEECE5;
+      --muted: #B4B0A6;
+      --faint: #98948A;
+      --card: #3A3730;
+      --border: #4A453C;
+      --accent: #D4795A;
+      --accent-hover: #E0876B;
+      --ring: #D4795A;
     }
 
     * { box-sizing: border-box; }
