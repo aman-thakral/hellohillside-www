@@ -308,3 +308,42 @@
     }
     footer a { color: var(--faint); text-decoration: none; }
     footer a:hover { color: var(--fg); }
+
+    /* ---------------------------------------------------------------
+       Legal pages (/pp, /tos) — long-form prose on the same warm-paper
+       palette. They reuse the topbar and footer; these rules just give
+       the document a calm, readable type scale. */
+    .legal { width: 100%; }
+    .legal h1 {
+      font-size: clamp(1.7rem, 5vw, 2.2rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      font-weight: 680;
+      margin: 0 0 6px;
+    }
+    .legal .updated {
+      margin: 0 0 28px;
+      color: var(--faint);
+      font-size: 13.5px;
+    }
+    .legal h2 {
+      margin: 34px 0 10px;
+      font-size: 1.1rem;
+      font-weight: 650;
+      letter-spacing: -0.01em;
+    }
+    .legal p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .legal ul {
+      margin: 0 0 14px;
+      padding-left: 20px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .legal li { margin: 6px 0; }
+    .legal strong { color: var(--fg); font-weight: 600; }
+    .legal a { color: var(--accent); text-decoration: none; }
+    .legal a:hover { text-decoration: underline; }
