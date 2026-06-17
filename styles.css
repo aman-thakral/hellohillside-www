@@ -72,6 +72,16 @@
        (.cta.cta-sm so it beats .cta regardless of source order) */
     .cta.cta-sm { padding: 6px 13px; font-size: 13px; gap: 6px; }
     .cta.cta-sm svg { width: 13px; height: 13px; }
+    /* Header actions: a quiet "Log in" beside the primary "Get started". */
+    .actions { display: flex; align-items: center; gap: 14px; }
+    .login-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .login-link:hover { color: var(--fg); }
     .mark {
       width: 30px; height: 30px;
       border-radius: 8px;
@@ -120,6 +130,16 @@
     .cta:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; }
     .cta svg { transition: transform 140ms ease; }
     .cta:hover svg { transform: translateX(2px); }
+
+    /* Hero call-to-action: primary button + a quiet line for returning users. */
+    .hero-cta { margin: 0; }
+    .hero-cta-note {
+      margin: 14px 0 0;
+      font-size: 13px;
+      color: var(--faint);
+    }
+    .hero-cta-note a { color: var(--accent); text-decoration: none; }
+    .hero-cta-note a:hover { text-decoration: underline; }
 
     /* Hero clip — a real phone capture, framed like a device. */
     .hero {
