@@ -133,6 +133,30 @@
 
     /* Hero call-to-action: primary button + a quiet line for returning users. */
     .hero-cta { margin: 0; }
+    /* Row holding the primary "Get started" CTA beside the App Store button;
+       wraps to stacked on narrow screens. */
+    .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+
+    /* App Store button — Apple's black badge look, rebuilt inline (no external
+       image) so the page stays self-contained. Sized to sit level with .cta. */
+    .appstore-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: #000;
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 15px;
+      border-radius: 10px;
+      width: fit-content;
+      transition: opacity 140ms ease;
+    }
+    .appstore-btn:hover { opacity: 0.85; }
+    .appstore-btn:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; }
+    .appstore-logo { width: 22px; height: 22px; flex: none; }
+    .appstore-txt { display: flex; flex-direction: column; line-height: 1.12; }
+    .appstore-txt small { font-size: 10px; font-weight: 500; letter-spacing: 0.01em; }
+    .appstore-txt strong { font-size: 17px; font-weight: 600; letter-spacing: -0.01em; }
     .hero-cta-note {
       margin: 14px 0 0;
       font-size: 13px;
@@ -313,6 +337,8 @@
       line-height: 1.55;
     }
     .faq details ol li { margin: 4px 0; }
+    .faq details a { color: var(--accent); text-decoration: none; }
+    .faq details a:hover { text-decoration: underline; }
 
     footer {
       width: 100%;
