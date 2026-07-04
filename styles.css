@@ -337,6 +337,8 @@
       line-height: 1.55;
     }
     .faq details ol li { margin: 4px 0; }
+    .faq details a { color: var(--accent); text-decoration: none; }
+    .faq details a:hover { text-decoration: underline; }
 
     footer {
       width: 100%;
