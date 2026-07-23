@@ -271,15 +271,25 @@
     .shot { margin: 0; display: flex; flex-direction: column; align-items: center; }
     /* odd number of tiles → center the lone last one across both columns */
     .shot:last-child:nth-child(odd) { grid-column: 1 / -1; justify-self: center; }
-    .shot img, .shot video {
+    /* Gallery tiles are small device frames — consistent with the hero — so the
+       status bar / Dynamic Island reads as a phone, not a floating pill on a bare
+       card. Each <img> is wrapped in a .device (see index.html). */
+    .shot .device {
+      position: relative;
       width: 100%;
-      max-width: 176px;
-      height: auto;
+      max-width: 172px;
+      padding: 6px;
+      background: linear-gradient(150deg, #34343a, #161618);
+      border-radius: 32px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18),
+                  inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+    }
+    .shot .device img, .shot .device video {
       display: block;
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-      background: var(--card);
+      width: 100%;
+      height: auto;
+      border-radius: 26px;
+      background: #000;
     }
     .shot figcaption {
       margin-top: 10px;
