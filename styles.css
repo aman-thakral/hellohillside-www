@@ -200,6 +200,43 @@
       border-radius: 38px;
       background: #000;
     }
+    /* The crossfading hero. Three stills stacked in the device; the first stays
+       in normal flow so it sets the height, the rest overlay it.
+
+       The screens' own cream sits on the reel rather than #000 (which the rule
+       above gives a lone hero image): mid-crossfade both frames are partly
+       transparent, and over black that reads as a flicker. Over cream it reads as
+       a dissolve, because cream is what the app is. */
+    .hero .device .reel {
+      position: relative;
+      border-radius: 38px;
+      overflow: hidden;
+      background: #F7F5EE;
+    }
+    .hero .device .reel img { background: none; border-radius: 0; }
+    .hero .device .reel img + img { position: absolute; inset: 0; }
+
+    /* 10.5s: 3.5s a frame, of which ~0.5s is the dissolve. Slow enough to read a
+       screen at this size, and slow enough not to pull the eye off the headline —
+       the hero argues, the reel illustrates. */
+    .hero .device .reel img { animation: hero-reel 10.5s infinite; }
+    .hero .device .reel img:nth-child(2) { animation-delay: -7s; }
+    .hero .device .reel img:nth-child(3) { animation-delay: -3.5s; }
+
+    @keyframes hero-reel {
+      0%     { opacity: 1 }
+      28.5%  { opacity: 1 }
+      33.3%  { opacity: 0 }
+      95.2%  { opacity: 0 }
+      100%   { opacity: 1 }
+    }
+
+    /* Reduced motion gets the first frame, full stop — not a slower loop. */
+    @media (prefers-reduced-motion: reduce) {
+      .hero .device .reel img { animation: none; }
+      .hero .device .reel img + img { display: none; }
+    }
+
     .hero figcaption {
       margin-top: 14px;
       font-size: 13px;
