@@ -76,10 +76,21 @@
       </div>
       <figure class="hero">
         <div class="device">
-          <img src="screens/compose.png" width="390" height="844"
-               alt="Hillside — one box, no fields or forms, for whatever's on your mind." />
+          <!-- Three stills crossfading, not a video: the pitch is a transformation
+               (a jumbled sentence becomes filed things you can find later) and no
+               single frame carries it. Stills stay refreshable by the screenshot
+               script, which is what the last hero video failed at — it shipped two
+               nav generations out of date before anyone noticed. First frame is the
+               one that must stand alone: it is what reduced-motion and any
+               animation failure fall back to. -->
+          <div class="reel">
+            <img src="screens/compose.png" width="390" height="844"
+                 alt="Hillside — one box, no fields or forms, for whatever's on your mind." />
+            <img src="screens/detail.png" width="390" height="844" alt="" aria-hidden="true" />
+            <img src="screens/search.png" width="390" height="844" alt="" aria-hidden="true" />
+          </div>
         </div>
-        <figcaption>One box. No fields, no forms.</figcaption>
+        <figcaption>Say it once. It lands where it goes.</figcaption>
       </figure>
     </section>
 
